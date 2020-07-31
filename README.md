@@ -58,7 +58,7 @@ Flatiron Mod 3 Project
 
 ## Business Context
 
-Water in Africa: Techmnical and Equipment Researchers, LTD. (WATER) is a (hypothetical) consultancy which seeks to amplify the positive effects of progress in water point parts, supply, and maintenance. Progress may be made by the public and/or private sectors by analyzing, and anticipating the status of water point repair more quickly and efficiently.
+Water in Africa: Technical and Equipment Researchers, LTD. (WATER) is a (hypothetical) consultancy which seeks to amplify the positive effects of progress in water point parts, supply, and maintenance. Progress may be made by the public and/or private sectors by analyzing, and anticipating the status of water point repair more quickly and efficiently.
 
 ### Predicting Water Point Maintenance Status from Data
 

@@ -1,0 +1,762 @@
+,name,cv_results,best_estimator,best_score,train_score,test_score,feature_list
+0,handpicked tuned DCT,"   mean_fit_time  std_fit_time  mean_score_time  std_score_time  \
+0       4.321217      0.913345         0.266514        0.017368   
+1       0.404517      0.012665         0.134148        0.027040   
+2       1.814030      0.063551         0.182485        0.024565   
+3      14.610151      0.382880         0.637352        0.012922   
+4       7.734408      0.413986         0.433041        0.064107   
+5      38.928202      0.964779         1.674852        0.140234   
+6      13.290140      2.819715         0.759463        0.078818   
+7       3.246499      0.151143         0.261782        0.013874   
+8      40.673039      1.736454         1.588245        0.124996   
+9       4.311857      0.392506         0.250315        0.018861   
+
+  param_fxn__n_estimators param_fxn__min_samples_split  \
+0                      50                            5   
+1                      20                            4   
+2                      20                            5   
+3                     200                            5   
+4                     100                            5   
+5                     500                            4   
+6                     200                            4   
+7                      50                            5   
+8                     500                            2   
+9                     100                            5   
+
+  param_fxn__max_features param_fxn__max_depth param_fxn__criterion  \
+0                    log2                  101              entropy   
+1                    auto                    1              entropy   
+2                    auto                  151              entropy   
+3                    log2                  181              entropy   
+4                    log2                  161              entropy   
+5                    log2                   41              entropy   
+6                    log2                  101                 gini   
+7                    auto                  161                 gini   
+8                    auto                   31              entropy   
+9                    auto                   11              entropy   
+
+                                              params  ...  mean_test_score  \
+0  {'fxn__n_estimators': 50, 'fxn__min_samples_sp...  ...         0.642001   
+1  {'fxn__n_estimators': 20, 'fxn__min_samples_sp...  ...         0.145689   
+2  {'fxn__n_estimators': 20, 'fxn__min_samples_sp...  ...         0.640249   
+3  {'fxn__n_estimators': 200, 'fxn__min_samples_s...  ...         0.639788   
+4  {'fxn__n_estimators': 100, 'fxn__min_samples_s...  ...         0.639142   
+5  {'fxn__n_estimators': 500, 'fxn__min_samples_s...  ...         0.643476   
+6  {'fxn__n_estimators': 200, 'fxn__min_samples_s...  ...         0.642278   
+7  {'fxn__n_estimators': 50, 'fxn__min_samples_sp...  ...         0.640618   
+8  {'fxn__n_estimators': 500, 'fxn__min_samples_s...  ...         0.643799   
+9  {'fxn__n_estimators': 100, 'fxn__min_samples_s...  ...         0.408714   
+
+   std_test_score  rank_test_score  split0_train_score  split1_train_score  \
+0        0.005580                4            0.910904            0.907561   
+1        0.005379               10            0.145459            0.144710   
+2        0.004563                6            0.896784            0.900127   
+3        0.004358                7            0.915168            0.916033   
+4        0.003790                8            0.912460            0.913728   
+5        0.005092                2            0.955337            0.953608   
+6        0.003646                3            0.948018            0.947556   
+7        0.004831                5            0.902663            0.904276   
+8        0.006014                1            0.994179            0.993315   
+9        0.012605                9            0.418107            0.442485   
+
+   split2_train_score  split3_train_score  split4_train_score  \
+0            0.906985            0.907100            0.909059   
+1            0.144133            0.147361            0.148225   
+2            0.900069            0.901337            0.898398   
+3            0.914361            0.915341            0.916263   
+4            0.910327            0.912863            0.913900   
+5            0.955337            0.955279            0.956028   
+6            0.948190            0.949458            0.950380   
+7            0.903527            0.904622            0.904391   
+8            0.993718            0.994064            0.994410   
+9            0.428135            0.422775            0.441678   
+
+   mean_train_score  std_train_score  
+0          0.908322         0.001488  
+1          0.145977         0.001565  
+2          0.899343         0.001585  
+3          0.915433         0.000675  
+4          0.912656         0.001281  
+5          0.955118         0.000804  
+6          0.948721         0.001042  
+7          0.903896         0.000718  
+8          0.993937         0.000383  
+9          0.430636         0.009873  
+
+[10 rows x 25 columns]","Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn',
+                 RandomForestClassifier(criterion='entropy', max_depth=31,
+                                        n_estimators=500,
+                                        random_state=60120))])",0.643798986,0.992208391,0.655292607,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+1,RFC_vanilla,[0.64564315 0.62863071 0.63858921],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', RandomForestClassifier(random_state=60120))])",na,0.994886364,0.739646465,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+2,DCT_vanilla,[0.62600277 0.61798064 0.62295989],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', DecisionTreeClassifier(random_state=60120))])",na,0.994949495,0.706313131,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+3,XGB_vanilla,[0.39930844 0.38990318 0.38326418],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn',
+                 XGBClassifier(objective='multi:softprob',
+                               random_state=60120))])",na,0.670854377,0.669107744,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+4,handpicked_tuned_DCT,"   mean_fit_time  std_fit_time  mean_score_time  std_score_time  \
+0       0.245514      0.005954         0.093889        0.005024   
+1       0.273585      0.007537         0.092535        0.005668   
+2       0.254554      0.038819         0.105191        0.016212   
+3       0.368893      0.051884         0.101366        0.006816   
+4       0.346650      0.006549         0.097452        0.005210   
+5       0.245471      0.012515         0.103950        0.006689   
+6       0.346335      0.042875         0.132630        0.030304   
+7       0.325473      0.034981         0.138127        0.011834   
+8       0.404670      0.031878         0.129650        0.024026   
+9       0.336146      0.040389         0.122312        0.022758   
+
+  param_fxn__splitter param_fxn__min_samples_split param_fxn__max_features  \
+0              random                            4                    log2   
+1                best                            5                    log2   
+2              random                            5                    auto   
+3                best                            4                    log2   
+4                best                            4                    log2   
+5              random                            2                    log2   
+6                best                            4                    log2   
+7              random                            5                    auto   
+8                best                            5                    log2   
+9                best                            2                    auto   
+
+  param_fxn__max_depth param_fxn__criterion  \
+0                   81              entropy   
+1                   71                 gini   
+2                  151                 gini   
+3                  191              entropy   
+4                   71              entropy   
+5                   21              entropy   
+6                   31                 gini   
+7                   81                 gini   
+8                  181              entropy   
+9                  171                 gini   
+
+                                              params  ...  mean_test_score  \
+0  {'fxn__splitter': 'random', 'fxn__min_samples_...  ...         0.581789   
+1  {'fxn__splitter': 'best', 'fxn__min_samples_sp...  ...         0.603366   
+2  {'fxn__splitter': 'random', 'fxn__min_samples_...  ...         0.573675   
+3  {'fxn__splitter': 'best', 'fxn__min_samples_sp...  ...         0.609774   
+4  {'fxn__splitter': 'best', 'fxn__min_samples_sp...  ...         0.609774   
+5  {'fxn__splitter': 'random', 'fxn__min_samples_...  ...         0.487921   
+6  {'fxn__splitter': 'best', 'fxn__min_samples_sp...  ...         0.604841   
+7  {'fxn__splitter': 'random', 'fxn__min_samples_...  ...         0.573675   
+8  {'fxn__splitter': 'best', 'fxn__min_samples_sp...  ...         0.608437   
+9  {'fxn__splitter': 'best', 'fxn__min_samples_sp...  ...         0.630337   
+
+   std_test_score  rank_test_score  split0_train_score  split1_train_score  \
+0        0.009189                7            0.780717            0.779507   
+1        0.005700                6            0.869295            0.871888   
+2        0.006447                8            0.737609            0.738762   
+3        0.005761                2            0.898744            0.902086   
+4        0.005761                2            0.898744            0.902086   
+5        0.029885               10            0.574516            0.530775   
+6        0.009063                5            0.860477            0.879553   
+7        0.006447                8            0.737609            0.738762   
+8        0.008231                4            0.874769            0.872118   
+9        0.005403                1            0.995332            0.994122   
+
+   split2_train_score  split3_train_score  split4_train_score  \
+0            0.777086            0.778181            0.779276   
+1            0.866240            0.872061            0.872522   
+2            0.740779            0.737437            0.739799   
+3            0.898974            0.902086            0.903757   
+4            0.898974            0.902086            0.903757   
+5            0.622464            0.569905            0.680325   
+6            0.883241            0.874942            0.865203   
+7            0.740779            0.737437            0.739799   
+8            0.876729            0.876844            0.872464   
+9            0.994640            0.993661            0.995274   
+
+   mean_train_score  std_train_score  
+0          0.778953         0.001233  
+1          0.870401         0.002366  
+2          0.738877         0.001278  
+3          0.901130         0.001953  
+4          0.901130         0.001953  
+5          0.595597         0.051395  
+6          0.872683         0.008587  
+7          0.738877         0.001278  
+8          0.874585         0.002016  
+9          0.994606         0.000649  
+
+[10 rows x 25 columns]","Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn',
+                 DecisionTreeClassifier(max_depth=171, max_features='auto',
+                                        random_state=60120))])",0.630336561,0.994190871,0.63841497,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+5,vanilla_knn,[0.60373444 0.59087137 0.60041494],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  StandardScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()), ('fxn', KNeighborsClassifier())])",na,0.810311448,0.743013468,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+6,vanilla_logreg,[0.37053942 0.36984786 0.35947441],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  StandardScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()), ('fxn', LogisticRegression())])",na,0.655155724,0.654292929,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+7,vanilla_logreg,[0.37053942 0.36984786 0.35975104],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()), ('fxn', LogisticRegression())])",na,0.655071549,0.654292929,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+8,vanilla_logreg,[0.37081604 0.36984786 0.35975104],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.655050505,0.654208754,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+9,vanilla_logreg,[0.37081604 0.36984786 0.35975104],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.655050505,0.654208754,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+10,vanilla_gaussian_nb,[0.23236515 0.2406639  0.24080221],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [0, 1, 4, 5])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 4, None)),
+                                                 ('rescale num2',
+                                                  StandardScaler(),
+                                                  slice(4, 7, None))])),
+                ('KNN impute', KNNImputer()), ('fxn', GaussianNB())])",na,0.163510101,0.157239057,"Index(['basin', 'extraction_type', 'latitude', 'longitude', 'payment_type',
+       'water_quality_character', 'water_quality_abandoned'],
+      dtype='object')"
+11,feature_search_0,[0.50179806 0.50041494 0.49571231],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [8, 9, 10, 11, 12, 13, 14,
+                                                   15])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 8, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(8, 16, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.724915825,0.724326599,"Index(['elevation', 'public_meeting', 'permit', 'time_interval', 'longitude',
+       'latitude', 'water_quality_abandoned', 'district_code',
+       'scheme_management', 'extraction_type_class', 'management',
+       'payment_type', 'water_quality', 'quantity_group', 'source_class',
+       'waterpoint_type_group'],
+      dtype='object')"
+12,feature_search_1,[0.53029046 0.53001383 0.52213001],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.731397306,0.731818182,"Index(['elevation', 'amount_tsh', 'public_meeting', 'time_interval',
+       'water_quality_character', 'region', 'scheme_management',
+       'extraction_type_group', 'management', 'payment_type', 'water_quality',
+       'quantity', 'source', 'waterpoint_type_group'],
+      dtype='object')"
+13,feature_search_2,[0.5131397  0.50968188 0.5077455 ],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [5, 6, 7, 8, 9, 10, 11, 12,
+                                                   13, 14])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 15, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.721822391,0.723821549,"Index(['elevation', 'amount_tsh', 'public_meeting', 'permit', 'longitude',
+       'water_quality_character', 'basin', 'scheme_management',
+       'extraction_type_group', 'management_group', 'payment_type',
+       'water_quality', 'quantity_group', 'source', 'waterpoint_type'],
+      dtype='object')"
+14,feature_search_3,[0.49308437 0.49087137 0.48962656],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [3, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 9, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(9, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.720054714,0.724494949,"Index(['elevation', 'amount_tsh', 'permit', 'water_quality_character',
+       'water_quality_abandoned', 'region_code', 'scheme_management',
+       'extraction_type', 'management_group', 'payment_type', 'water_quality',
+       'quantity_group', 'source', 'waterpoint_type'],
+      dtype='object')"
+15,feature_search_4,[0.51217151 0.5153527  0.50677732],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [5, 7, 8, 9, 10, 11, 12, 13,
+                                                   14, 15])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 16, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.725105219,0.726094276,"Index(['amount_tsh', 'public_meeting', 'permit', 'time_interval', 'latitude',
+       'water_quality_character', 'water_quality_abandoned', 'basin',
+       'scheme_management', 'extraction_type_class', 'management',
+       'payment_type', 'quality_group', 'quantity_group', 'source_class',
+       'waterpoint_type_group'],
+      dtype='object')"
+16,feature_search_5,[0.51037344 0.51493776 0.50594744],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [4, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 9, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(9, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.727041246,0.727188552,"Index(['elevation', 'amount_tsh', 'permit', 'time_interval',
+       'water_quality_character', 'district_code', 'scheme_management',
+       'extraction_type', 'management', 'payment_type', 'quality_group',
+       'quantity', 'source_class', 'waterpoint_type'],
+      dtype='object')"
+17,feature_search_6,[0.52033195 0.52282158 0.51258645],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [5, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 9, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(9, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.729461279,0.73047138,"Index(['public_meeting', 'permit', 'time_interval', 'longitude',
+       'water_quality_abandoned', 'basin', 'scheme_management',
+       'extraction_type_class', 'management', 'payment_type', 'water_quality',
+       'quantity', 'source', 'waterpoint_type_group'],
+      dtype='object')"
+18,feature_search_7,[0.49986169 0.49695712 0.49363762],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [2, 3, 4, 5, 6, 7, 8, 9, 10,
+                                                   11])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 12, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.723190236,0.727188552,"Index(['elevation', 'latitude', 'water_quality_character', 'region',
+       'scheme_management', 'extraction_type_class', 'management_group',
+       'payment', 'water_quality', 'quantity', 'source_class',
+       'waterpoint_type'],
+      dtype='object')"
+19,feature_search_8,[0.49751037 0.49474412 0.48603043],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 8, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(8, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.724705387,0.727272727,"Index(['amount_tsh', 'public_meeting', 'longitude', 'latitude',
+       'water_quality_abandoned', 'district_code', 'scheme_management',
+       'extraction_type_class', 'management', 'payment_type', 'quality_group',
+       'quantity', 'source_type', 'waterpoint_type_group'],
+      dtype='object')"
+20,feature_search_9,[0.51106501 0.50359613 0.50013831],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [3, 4, 5, 6, 7, 8, 9, 10])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 8, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(8, 11, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', LogisticRegression(max_iter=500))])",na,0.722516835,0.726094276,"Index(['public_meeting', 'longitude', 'region_code', 'scheme_management',
+       'extraction_type_group', 'management', 'payment_type', 'water_quality',
+       'quantity', 'source_type', 'waterpoint_type'],
+      dtype='object')"
+21,RFC_on_ideal_set,[0.67828492 0.66970954 0.67344398],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', RandomForestClassifier(random_state=60120))])",na,0.991245791,0.773148148,"['elevation', 'amount_tsh', 'public_meeting', 'time_interval', 'water_quality_character', 'region', 'scheme_management', 'extraction_type_group', 'management', 'payment_type', 'water_quality', 'quantity', 'source', 'waterpoint_type_group']"
+22,DCT_on_ideal_set,[0.66749654 0.65643154 0.6593361 ],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn', DecisionTreeClassifier(random_state=60120))])",na,0.991287879,0.741161616,"['elevation', 'amount_tsh', 'public_meeting', 'time_interval', 'water_quality_character', 'region', 'scheme_management', 'extraction_type_group', 'management', 'payment_type', 'water_quality', 'quantity', 'source', 'waterpoint_type_group']"
+23,XGB_on_ideal_set,[0.50387275 0.50428769 0.49626556],"Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn',
+                 XGBClassifier(objective='multi:softprob',
+                               random_state=60120))])",na,0.739520202,0.740151515,"['elevation', 'amount_tsh', 'public_meeting', 'time_interval', 'water_quality_character', 'region', 'scheme_management', 'extraction_type_group', 'management', 'payment_type', 'water_quality', 'quantity', 'source', 'waterpoint_type_group']"
+24,ideal set RFC,"   mean_fit_time  std_fit_time  mean_score_time  std_score_time  \
+0     164.716993     10.955096        40.623416        4.035081   
+1     150.320295      6.135402        37.284162        2.348617   
+2     147.432381      2.253165        37.001518        2.102882   
+3     173.970523      9.551041        40.901838        4.499962   
+4     131.610376      7.644603        30.656350        1.122021   
+5     173.968026     35.668697        34.340952        7.348576   
+6     136.633084      3.104757        31.266121        1.280547   
+7     143.145590     13.831181        35.948609        2.467160   
+8     214.295874      9.598127        42.542217        8.283609   
+9     179.077826     12.720838        42.161115        4.573931   
+
+  param_fxn__n_estimators param_fxn__min_samples_split  \
+0                      50                            5   
+1                      20                            4   
+2                      20                            5   
+3                     200                            5   
+4                     100                            5   
+5                     500                            4   
+6                     200                            4   
+7                      50                            5   
+8                     500                            2   
+9                     100                            5   
+
+  param_fxn__max_features param_fxn__max_depth param_fxn__criterion  \
+0                    log2                  101              entropy   
+1                    auto                    1              entropy   
+2                    auto                  151              entropy   
+3                    log2                  181              entropy   
+4                    log2                  161              entropy   
+5                    log2                   41              entropy   
+6                    log2                  101                 gini   
+7                    auto                  161                 gini   
+8                    auto                   31              entropy   
+9                    auto                   11              entropy   
+
+                                              params  ...  mean_test_score  \
+0  {'fxn__n_estimators': 50, 'fxn__min_samples_sp...  ...         0.674228   
+1  {'fxn__n_estimators': 20, 'fxn__min_samples_sp...  ...         0.335685   
+2  {'fxn__n_estimators': 20, 'fxn__min_samples_sp...  ...         0.674089   
+3  {'fxn__n_estimators': 200, 'fxn__min_samples_s...  ...         0.676026   
+4  {'fxn__n_estimators': 100, 'fxn__min_samples_s...  ...         0.675888   
+5  {'fxn__n_estimators': 500, 'fxn__min_samples_s...  ...         0.675611   
+6  {'fxn__n_estimators': 200, 'fxn__min_samples_s...  ...         0.677916   
+7  {'fxn__n_estimators': 50, 'fxn__min_samples_sp...  ...         0.675657   
+8  {'fxn__n_estimators': 500, 'fxn__min_samples_s...  ...         0.671231   
+9  {'fxn__n_estimators': 100, 'fxn__min_samples_s...  ...         0.482941   
+
+   std_test_score  rank_test_score  split0_train_score  split1_train_score  \
+0        0.006653                6            0.866298            0.869122   
+1        0.041394               10            0.263831            0.355982   
+2        0.010944                7            0.866528            0.867450   
+3        0.007949                2            0.869410            0.872637   
+4        0.007633                3            0.869122            0.871946   
+5        0.008538                5            0.897994            0.899666   
+6        0.008934                1            0.904276            0.907503   
+7        0.009285                4            0.868488            0.870044   
+8        0.007321                8            0.965364            0.966920   
+9        0.005478                9            0.495505            0.492278   
+
+   split2_train_score  split3_train_score  split4_train_score  \
+0            0.867623            0.868257            0.869640   
+1            0.359036            0.355233            0.350507   
+2            0.865203            0.869467            0.866759   
+3            0.870735            0.870793            0.870620   
+4            0.869813            0.870274            0.871369   
+5            0.900069            0.900357            0.897994   
+6            0.906351            0.906812            0.905371   
+7            0.869813            0.871600            0.871485   
+8            0.968707            0.968937            0.967439   
+9            0.491471            0.498098            0.498041   
+
+   mean_train_score  std_train_score  
+0          0.868188         0.001173  
+1          0.336918         0.036645  
+2          0.867082         0.001398  
+3          0.870839         0.001033  
+4          0.870505         0.001026  
+5          0.899216         0.001021  
+6          0.906063         0.001130  
+7          0.870286         0.001156  
+8          0.967473         0.001298  
+9          0.495078         0.002791  
+
+[10 rows x 25 columns]","Pipeline(steps=[('impute categorical',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('impute',
+                                                  SimpleImputer(fill_value='none',
+                                                                strategy='constant'),
+                                                  [4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                                   13])])),
+                ('encode&scale',
+                 ColumnTransformer(remainder='passthrough',
+                                   transformers=[('OHE',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False),
+                                                  slice(0, 10, None)),
+                                                 ('rescale num2',
+                                                  MinMaxScaler(),
+                                                  slice(10, 14, None))])),
+                ('KNN impute', KNNImputer()),
+                ('fxn',
+                 RandomForestClassifier(max_depth=101, max_features='log2',
+                                        min_samples_split=4, n_estimators=200,
+                                        random_state=60120))])",0.67791609,0.906961734,0.700972299,"['elevation', 'amount_tsh', 'public_meeting', 'time_interval', 'water_quality_character', 'region', 'scheme_management', 'extraction_type_group', 'management', 'payment_type', 'water_quality', 'quantity', 'source', 'waterpoint_type_group']"

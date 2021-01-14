@@ -144,7 +144,7 @@ In this image, the brown represents the accurately predicted nonfunctional water
 ### Feature Importance
 After running the algorithm, we determined that the model would be most effective to understand and implement for potential parts/repair/maintenance firms if they understood which factors contributed the most to the predictions, so they are listed here:
 
-![Feature Importance](Images/Feature-Importance.png)
+![Feature Importance](Images/feature-importance.png)
 
 ## Conclusions and Takeaways
 
@@ -170,7 +170,7 @@ Improve maintenance planning & budgeting by:
 - Further feature optimization
 - Informed feature engineering
 
-![improve](Images/improve.jpg)
+![improve](Images/pump1.jpg)
 
 
 ### Growth Opportunities
@@ -180,7 +180,7 @@ Improve maintenance planning & budgeting by:
 - Invert model to identify demand for particulars
 - Combine with economic models
 
-![Growth](Images/Growth.jpg)
+![Growth](Images/brokenpump.jpg)
 
 
 ## ASANTE!

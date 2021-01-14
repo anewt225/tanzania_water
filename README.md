@@ -81,9 +81,9 @@ Our model helps to fix those problems by starting with more efficient market pla
 
 ## Data Understanding
 
-The data from this project came from various collection efforts in the early 2000s, with GeoData LTD. listed as the data recorder. Combining industry knowledge with 
+The data from this project came from various collection efforts in the early 2000s, with GeoData LTD. listed as the data recorder. The dataset was obtained from Taarifa and the Tanzanian Water Ministry.
 
-Overall, the data provided included the sales price and other information for around 21,000 houses sold between May 2014 and My 2015.
+Overall, the data provided included the functional status of 59,400 observations, covering features such as geography, geology, community engagement, operational habits, age, resource availability, and technical specifications of the waterpoints.
 
 An overall map of Tanzania, with the functional, needs repair, and nonfunctional categories
 ![Functionality Map](Images/geographical_viz.png)

@@ -64,7 +64,7 @@ Water in Africa: Technical and Equipment Researchers, LTD. (WATER) is a (hypothe
 
 The instrumental goal in this project is to construct a model capable of predicting the status of a waterpoint (specifically, in Tanzania), between the three states of "functional", "functional needs repair", and "non functioning".The underlying motivation is to create a cheaply implemented, readily available tool for businesses or other organizations looking to provide maintenance and replacement services for said waterpoints. This should in principle lower the overhead costs for such providers (less chance of over-ordering parts, over-hiring staff, etc.) and so should, due to lower volatility and increased profitability, stimulate the creation of new providers or expansion of new ones.
 
-A major factor in waterpoint failure is difficulty in accessing necessary maintenance; this model would help ameliorate that. In summary, our goal was:
+A major factor in waterpoint failure is difficulty in assessing necessary maintenance; this model would help ameliorate that. In summary, our goal was to:
 
 **Reduce overhead costs by anticipating water pump maintenance status.**
 
